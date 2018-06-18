@@ -15,18 +15,18 @@ from pandas import ExcelFile
 app = Flask(__name__)
 
 
-df1 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/entries.xlsx')
-entries = df1.to_dict(orient='records')
+# df1 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/entries.xlsx')
+# entries = df1.to_dict(orient='records')
 
-df2 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/innovatorsAll.xlsx')
+df2 = pd.read_excel('/home/carezooming/carezoom_copy/innovatorsAll.xlsx')
 innovatorsAll = df2.to_dict(orient='records')
 
-df3 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/teamMembers.xlsx')
+df3 = pd.read_excel('/home/carezooming/carezoom_copy/teamMembers.xlsx')
 teamMembers = df3.to_dict(orient='records')
-df4 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/entries3.xlsx')
+df4 = pd.read_excel('/home/carezooming/carezoom_copy/entries3.xlsx')
 entries3= df4.to_dict(orient='records')
 
-df5 = pd.read_excel('/home/carezoom/carezoom/carezoom_frontend/carezoom_frontend/advisors.xlsx')
+df5 = pd.read_excel('/home/carezooming/carezoom_copy/advisors.xlsx')
 advisorsAll= df5.to_dict(orient='records')
 
 
