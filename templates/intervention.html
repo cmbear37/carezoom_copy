@@ -1,0 +1,227 @@
+{% extends "index.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block main %}
+<style>
+h2 {
+    display: inline;
+    font-size: 2em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    width:80%;
+    font-weight: bold;
+    text-align: left;
+    line-height: 67px;
+    padding-left: 10px;
+
+}
+.accordion {
+    background-color: #f2e2e1;
+    color: #000;
+    cursor: pointer;
+    padding: 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+
+    transition: 0.4s;
+
+}
+
+.active, .accordion:hover {
+    background-color: #ba4444;
+    color:white;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: black;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    padding: 20px 0;
+    padding-right: 10px;
+}
+
+.active:after {
+    content: "\2212";
+    color:white;
+    padding-right: 10px;
+
+}
+
+.panel {
+    padding: 0 0px;
+    background-color: #ba4444;
+    max-height: 0;
+    color: white;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h4 {
+	font-style: italic;
+}
+
+
+
+</style>
+
+<center><h2 style="font-size: 3em; text-align: center">{{info.title}}</h2></center>
+<article>
+
+
+
+
+<blockquote>
+<p>{{info.overview}}</p>
+</blockquote>
+
+<br>
+<h4>Innovator: {{info.innovname}}</h4><br>
+<h4>Editor: {{info.editorname}}</h4><br>
+<h4>Clinic: {{info.clinname}}</h4><br>
+<h4>Organization: {{info.orgname}}</h4><br>
+<h4>Location: {{info.location}}</h4><br>
+<br>
+
+
+
+
+<button class="accordion"><h2> Background</h2></button>
+<div class="panel">
+	<h4>Tags</h4>
+	<p>{{info.orgtypetag}}</p>
+	<h4>Text</h4>
+  <p>{{info.orgtypetext| safe}}</p>
+  <h4>Macro Trends</h4>
+  <p>{{info.orgcontextmacro |safe }}</p>
+  <h4>Context</h4>
+  <p>{{info.orgcontextleader}}</p>
+</div>
+
+<button class="accordion"><h2>Where We Are</h2></button>
+<div class="panel">
+	<h4>Current Status</h4>
+  <p>{{info.currentstatus}}</p>
+</div>
+
+<button class="accordion"><h2> Daily Workflow</h2></button>
+<div class="panel">
+
+  <p>{{info.dailyworkflowbrief}}</p>
+  <h4> Steps</h4>
+  <p>{{info.dailyworfklowsteps}}</p>
+</div>
+
+<button class="accordion"><h2> Budget</h2></button>
+<div class="panel">
+  <p>{{info.budgetdetails}}</p>
+</div>
+
+<button class="accordion"><h2> Patient Population</h2></button>
+<div class="panel">
+	<h4>Patient Population Served + Payor Information</h4>
+  <p>{{info.patientpop}}</p>
+</div>
+
+<button class="accordion"><h2> Technology Used</h2></button>
+<div class="panel">
+  <p>{{info.techchoices}}</p>
+</div>
+
+<button class="accordion"><h2>Team Members </h2></button>
+<div class="panel">
+  <p>{{info.teamchoices}}</p>
+</div>
+
+<button class="accordion"><h2> Setup</h2></button>
+<div class="panel">
+	<h4>Leadership</h4>
+  <p>{{info.progsetupleader}}</p>
+  <h4>Funds</h4>
+  <p>{{info.progsetupapp}}</p>
+  <h4>Research</h4>
+  <p>{{info.progsetupresearch}}</p>
+  <h4>Products</h4>
+  <p>{{info.progsetuptools}}</p>
+  <h4>Training</h4>
+  <p>{{info.progsetuptraining}}</p>
+</div>
+
+
+
+<button class="accordion"><h2> Outcomes</h2></button>
+<div class="panel">
+	<h4>Key Outcome</h4>
+  <p>{{info.outcomeskey}}</p>
+  <h4>Analysis</h4>
+  <p>{{info.outcomesanalysis}}</p>
+  <h4>Future Outcomes</h4>
+  <p>{{info.outcomesfuture}}</p>
+</div>
+
+<button class="accordion"><h2> Benefits</h2></button>
+<div class="panel">
+  <p>{{info.benefits}}</p>
+</div>
+
+<button class="accordion"><h2> Challenges</h2></button>
+<div class="panel">
+	<h4>Unique Challenges</h4>
+  <p>{{info.challengesunique}}</p>
+  <h4>Personnel Challenges</h4>
+  <p>{{info.challengespersonnel}}</p>
+</div>
+
+<button class="accordion"><h2> Ratings</h2></button>
+<div class="panel">
+	<h4>Rating Score</h4>
+  <p>{{info.ratingscore}}</p>
+  <h4>Description</h4>
+  <p>{{info.ratingdesc}}</p>
+</div>
+
+<button class="accordion"><h2> Literature Review</h2></button>
+<div class="panel">
+  <p>{{info.litrev}}</p>
+  <h4>References</h4>
+  <p>{{info.litrevref}}</p>
+</div>
+
+<button class="accordion"><h2>Glossary</h2></button>
+<div class="panel">
+  <p>{{info.glossary}}</p>
+</div>
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+
+
+
+{% endblock %}

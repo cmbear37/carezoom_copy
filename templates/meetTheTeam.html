@@ -1,0 +1,81 @@
+{% extends "index.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+{% block main %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  height: 700px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color: #f2e2e1;
+  color:grey;
+}
+
+.title {
+  color: black;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+h3{
+	color:black;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">Our Team</h2><br>
+<ul class="flex-container">
+	{% for t in teamMembers %}
+  <div class="card">
+  <img src={{t.imageurl}} alt={{t.name}} style="width:100%">
+  <h3 style="color:black;">{{t.name}}</h3>
+  <p class="title">{{t.title}}</p>
+  <p>{{t.bio}}</p>
+  <div style="margin: 24px 0;">
+    <a href="{{t.twitter}}"><i class="fa fa-twitter"></i></a>  
+    <a href="{{t.linkedin}}"><i class="fa fa-linkedin"></i></a>  
+    <a href="{{t.facebook}}"><i class="fa fa-facebook"></i></a> 
+ </div>
+ <p><button>Contact</button></p>
+</div>
+{% endfor %}
+</ul>
+
+</body>
+</html>
+{% endblock %}

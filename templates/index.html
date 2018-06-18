@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+   <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>Carezoom {% block title %}{% endblock %}</title>
+</head>
+
+<h1>CareZoom</h1>
+<img src="https://lh5.googleusercontent.com/Y5cibAnYEYacxYgG13kYSIHs6NtASlp9qbmQAAkXmhXwgsCDNCZ6NhjVhBKypFAv4h4SMLIlMi1jlcv3pUqbub6IpYMR-N-W_6CWKuATg1GzQiXVl-6YHAyp28JBdSz0H-zClz01" style="width:100%">    
+  <div class="w3-container">
+
+            <nav class="navbar navbar-default">
+
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        
+                    </div>
+                    
+                </div>
+                <div class="collapse navbar-collapse" id="navbar">
+                    
+                            <center><ul class="nav navbar-nav">
+                                <li><img src="https://lh3.googleusercontent.com/ElVj59S8w4yUI7tPDZMVWcbrx6Qw53lyLjDg6AGt58Kb27ERjym6K_LNUvq-C5xCZLgc8BMR1mbTbt5tRl8yN8HrJN5irsJBXHqVlmYJrbyePbhMbIGjLAZ0qmbRbhUXipeRzpP2" style="height:50px"></li>
+                                <li><a href="{{ url_for('home') }}">Home</a></li>
+                                <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+                                <li><a href="{{ url_for('search') }}">Search</a></li>
+                                <li><a href="{{ url_for('add') }}">Add Project</a></li>
+                                <li><a href="https://docs.google.com/a/college.harvard.edu/forms/d/1w5wF_ZVhXIxebCa3ftFs4AcCWc9rhf5i-1t_A8X7ljI/edit?usp=drive_web" target="_blank">Microconsulting</a></li>
+                                <li><a href="{{ url_for('innovators') }}">Innovators</a></li>
+                                <li><a href="{{ url_for('team') }}">Meet the Team</a></li>
+                                <li><a href="{{ url_for('advisors') }}">Advisors</a></li>
+                                <li><img src="https://lh3.googleusercontent.com/ElVj59S8w4yUI7tPDZMVWcbrx6Qw53lyLjDg6AGt58Kb27ERjym6K_LNUvq-C5xCZLgc8BMR1mbTbt5tRl8yN8HrJN5irsJBXHqVlmYJrbyePbhMbIGjLAZ0qmbRbhUXipeRzpP2" style="height:50px"></li>
+                            </ul></center>
+                           
+
+                    </div>
+
+            </nav>
+
+            {% if get_flashed_messages() %}
+                <header>
+                    <div class="alert alert-info" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                </header>
+            {% endif %}
+            
+			
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+            
+        </div>
+<script src="scripts/main.js"></script>
+</body>
+</html>
