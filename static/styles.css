@@ -261,7 +261,7 @@ input[type=textbig]{
 
 input[type=submit] {
     width: 100%;
-    background-color: #f2e2e1;
+    background-color: white;
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
