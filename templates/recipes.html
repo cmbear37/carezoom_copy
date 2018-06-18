@@ -13,7 +13,9 @@
   background-color: white;
   color: black;
 }
-
+h1 {
+  color: red;
+}
 .continents-wrap {
   float: left;
   width: 20%;
@@ -44,7 +46,7 @@
   position: relative;
   color: black;
   background-color: white;
-  border: 1px solid red;
+
 }
 
 
@@ -144,7 +146,6 @@ a {
           <h4><input type="submit" name="sub" value= "{{r.title}}" ></input></h4>
 			   </form>
     	<h4><a href="{{ url_for('innovator', title=r.innovname) }}" >{{r.innovname}}</a></h4>
-      {{ url_for('innovator', title=r.innovname) }}
       <h4>{{r.editorname}}</h4>
 			<h4>{{r.overview}}</h4> 
       </div>
