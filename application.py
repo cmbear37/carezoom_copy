@@ -151,9 +151,9 @@ def search():
         for k in entries3:
             print("k", k)
             print("hehrere", k['searchterms'])
-            if (k['searchterms'] != None):
-                if request.form.get("intervention") in k['searchterms']:
-                    results.append(k)
+            searchterms = k['searchterms']
+            if searchterms.find(request.form.get("intervention")) != -1:
+                results.append(k)
             entries_stringed[k['title']]=str(k)
         
         print("string cheese", entries_stringed)
